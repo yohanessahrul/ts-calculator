@@ -1,0 +1,30 @@
+.Wrapper {
+  width: 450px !important;
+  min-height: 100vh;
+  background: grey;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  box-sizing: border-box;
+  .InputGroup {
+    width: 100%;
+  }
+  .BtnGroup {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    // background: burlywood;
+    margin-top: 20px;
+  }
+  .Result {
+    margin: 16px;
+    width: 100%;
+    border-top: thin solid red;
+    margin-top: 32px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

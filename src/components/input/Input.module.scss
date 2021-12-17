@@ -1,0 +1,17 @@
+.Wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  input[type='number'] {
+    width: 320px;
+    height: 40px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .Checkbox {
+    display: block;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
