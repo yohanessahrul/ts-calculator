@@ -1,11 +1,6 @@
-interface ArrayNumber {
-  label?: string;
-  value?: number;
-}
-
 export const runningCalculator = (numbers: any, operator: string) => {
-  const sortArray: ArrayNumber[] = numbers.sort((a: any, b: any) => (a.label < b.label ? -1 : 1))
   if (numbers.length === 3) {
+    const sortArray = numbers.sort((a: any, b: any) => (a.label < b.label ? -1 : 1))
     numbers = sortArray
   }
 

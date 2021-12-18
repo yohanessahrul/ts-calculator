@@ -4,14 +4,20 @@
   justify-content: space-between;
   margin-bottom: 10px;
   input[type='number'] {
-    width: 320px;
-    height: 40px;
-    font-size: 30px;
+    width: 310px;
+    height: 50px;
+    font-size: 40px;
     font-weight: bold;
+    background: #e4e4e4;
+    border: thin solid #d1d1d1;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    color: #d38005;
   }
   .Checkbox {
     display: block;
-    width: 40px !important;
-    height: 40px !important;
+    width: 45px !important;
+    height: 45px !important;
   }
 }

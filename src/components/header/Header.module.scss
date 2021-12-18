@@ -1,0 +1,15 @@
+.Header {
+  width: 100%;
+  height: 100px;
+  // background: red;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .Logo {
+    height: 35px;
+  }
+  .Slogan {
+    width: 100px;
+  }
+}
