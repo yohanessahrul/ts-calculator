@@ -3,5 +3,8 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 test('renders without crash', () => {
-  expect(true).toBe(true);
+  render(<App />);
+  const linkElement = screen.getByText(/Hasil/i);
+  expect(linkElement).toBeInTheDocument()
+  // expect(true).toBe(true);
 });

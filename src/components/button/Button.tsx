@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import classes from './Button.module.scss'
+import React, { Component } from 'react';
+import classes from './Button.module.scss';
 
 interface ButtonProps {
   children?: String;

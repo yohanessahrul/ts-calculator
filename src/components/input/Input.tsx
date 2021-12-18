@@ -21,8 +21,6 @@ const Input: FC<InputProps> = ({ name, value, numbers, onChangeHandler, onChecke
     }
   }
 
-  console.log(`numbers`, numbers)
-
   return (
     <div className={classes.Wrapper}>
       <input
