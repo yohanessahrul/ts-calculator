@@ -1,3 +1,6 @@
+## Demo
+
+https://ts-calculator.herokuapp.com/
 
 ## Run Locally
 
