@@ -36,6 +36,7 @@ export default class layout extends Component<{}, Layoutinterface> {
   }
 
   onSetOperationHandler (operator: string) {
+    console.log(`trigger`)
     if (this.state.numbers && this.state.numbers.length < 2) {
       this.setState({isError: true})
     } else {
@@ -82,6 +83,7 @@ export default class layout extends Component<{}, Layoutinterface> {
     })
   }
 
+  
   render() {
     const { value1, value2, value3, numbers, isError } = this.state;
     return (
@@ -117,25 +119,29 @@ export default class layout extends Component<{}, Layoutinterface> {
           </div>
           <div className={classes.BtnGroup}>
             <Button
+              dataTestId="addition-btn"
               name="addition"
               activeOperator={this.state.operation}
               clicked={() => this.onSetOperationHandler('addition')}>+</Button>
             <Button
+              dataTestId="subtraction-btn"
               name="subtraction"
               activeOperator={this.state.operation}
               clicked={() => this.onSetOperationHandler('subtraction')}>-</Button>
             <Button
+              dataTestId="multiplication-btn"
               name="multiplication"
               activeOperator={this.state.operation}
               clicked={() => this.onSetOperationHandler('multiplication')}>x</Button>
             <Button
+              dataTestId="division-btn"
               name="division"
               activeOperator={this.state.operation}
               clicked={() => this.onSetOperationHandler('division')}>/</Button>
           </div>
           <div className={classes.Result}>
             <h3>Hasil</h3>
-            <h2>{this.state.result}</h2>
+            <h2 data-testid="result">{this.state.result}</h2>
           </div>
         </div>
       </div>

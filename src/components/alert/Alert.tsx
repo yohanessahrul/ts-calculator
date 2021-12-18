@@ -11,7 +11,7 @@ export default class Alert extends Component<AlertProps> {
     return (
       <React.Fragment>
         {isError &&
-          <div className={classes.Alert}>
+          <div className={classes.Alert} data-testid="alert">
             Untuk pengoperasian kalkulator, minimal memilih 2 angka.
           </div>
         }

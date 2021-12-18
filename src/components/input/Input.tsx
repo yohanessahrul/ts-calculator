@@ -24,6 +24,7 @@ const Input: FC<InputProps> = ({ name, value, numbers, onChangeHandler, onChecke
   return (
     <div className={classes.Wrapper}>
       <input
+        data-testid="input-number"
         type="number"
         min={0}
         name={name}
@@ -31,6 +32,7 @@ const Input: FC<InputProps> = ({ name, value, numbers, onChangeHandler, onChecke
         onChange={(e) => onChange(e, numbers)}></input>
       
       <input
+        data-testid="check-item"
         id="checkbox"
         className={classes.Checkbox}
         type="checkbox"
