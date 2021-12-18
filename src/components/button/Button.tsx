@@ -4,14 +4,15 @@ import classes from './Button.module.scss'
 interface ButtonProps {
   children?: String;
   clicked?: any;
-
+  name?: string;
+  activeOperator?: string;
 }
 
 export default class Button extends Component<ButtonProps> {
   render() {
-    const { children, clicked } = this.props;
+    const { children, clicked, name, activeOperator } = this.props;
     return (
-      <div className={classes.Wrapper} onClick={clicked}>
+      <div className={(name === activeOperator) ? [classes.Wrapper, classes.Active].join(' '): classes.Wrapper} onClick={clicked}>
         {children}
       </div>
     )

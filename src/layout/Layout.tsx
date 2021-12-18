@@ -1,7 +1,8 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import Button from '../components/button/Button'
 import classes from './Layout.module.scss'
 import Input from '../components/input/Input'
+import { runningCalculator } from '../helper/global'
 
 interface ArrayNumber {
   label?: string;
@@ -14,6 +15,7 @@ interface Layoutinterface {
   value3?: number;
   numbers?: ArrayNumber[];
   operation?: string;
+  result?: number;
 }
 
 export default class layout extends Component<{}, Layoutinterface> {
@@ -24,18 +26,16 @@ export default class layout extends Component<{}, Layoutinterface> {
       value2: 0,
       value3: 0,
       numbers: [],
-      operation: ''
-    }
-  }
-  
-  componentDidUpdate() {
-    if (this.state.operation) {
-      console.log(`this.state.operation`, this.state.operation)
+      operation: '',
+      result: 0
     }
   }
 
   onSetOperationHandler (operator: string) {
-    this.setState({operation: operator})
+    this.setState({ operation: operator })
+    this.setState({
+      result: runningCalculator(this.state.numbers, operator)
+    })
   }
 
   onChangeHandler(e: any, numbers: any) {
@@ -50,7 +50,7 @@ export default class layout extends Component<{}, Layoutinterface> {
       }
     }
 
-    this.setState({ numbers: numbersCp })
+    this.setState({ numbers: numbersCp, operation: '' })
   }
 
   onCheckedHandler (name: string, num: number, numbers: any) {
@@ -68,7 +68,8 @@ export default class layout extends Component<{}, Layoutinterface> {
     }
 
     this.setState({
-      numbers: numbersCp
+      numbers: numbersCp,
+      operation: ''
     })
   }
 
@@ -103,14 +104,26 @@ export default class layout extends Component<{}, Layoutinterface> {
           </div>
         </div>
         <div className={classes.BtnGroup}>
-          <Button clicked={() => this.onSetOperationHandler('addition')}>+</Button>
-          <Button clicked={() => this.onSetOperationHandler('subtraction')}>-</Button>
-          <Button clicked={() => this.onSetOperationHandler('multiplication')}>x</Button>
-          <Button clicked={() => this.onSetOperationHandler('division')}>/</Button>
+          <Button
+            name="addition"
+            activeOperator={this.state.operation}
+            clicked={() => this.onSetOperationHandler('addition')}>+</Button>
+          <Button
+            name="subtraction"
+            activeOperator={this.state.operation}
+            clicked={() => this.onSetOperationHandler('subtraction')}>-</Button>
+          <Button
+            name="multiplication"
+            activeOperator={this.state.operation}
+            clicked={() => this.onSetOperationHandler('multiplication')}>x</Button>
+          <Button
+            name="division"
+            activeOperator={this.state.operation}
+            clicked={() => this.onSetOperationHandler('division')}>/</Button>
         </div>
         <div className={classes.Result}>
           <h3>Hasil</h3>
-          <h2>2</h2>
+          <h2>{this.state.result}</h2>
         </div>
       </div>
     )

@@ -8,6 +8,11 @@
   line-height: none;
   font-size: 50px;
   &:hover {
+    background: #272727;
     cursor: pointer;
+  }
+  &.Active {
+    background: orange;
+    color: black;
   }
 }
