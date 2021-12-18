@@ -4,40 +4,41 @@ import classes from './Input.module.scss'
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   value?: number;
+  numbers?: any;
   onChangeHandler?: any;
   onCheckedHandler?: any;
 }
 
-const Input: FC<InputProps> = ({ name, value, onChangeHandler, onCheckedHandler}) => {
-  const [number, setNumber] = useState(0)
+const Input: FC<InputProps> = ({ name, value, numbers, onChangeHandler, onCheckedHandler}) => {
   const [isChecked, setIsChecked] = useState(false)
 
-  const onUpdateHandler = (e: any) => {
+  const onChange = (e: any, numbers: any) => {
     if (e.target.value !== '') {
-      setNumber(e.target.value)
-      onChangeHandler(e)
-      setIsChecked(true)
-    } else {
-      setNumber(0)
+      onChangeHandler(e, numbers)
       setIsChecked(false)
+    } else {
+      setIsChecked(true)
     }
   }
 
-  console.log('value', value)
+  console.log(`numbers`, numbers)
 
   return (
     <div className={classes.Wrapper}>
       <input
         type="number"
+        min={0}
         name={name}
-        defaultValue={value || ""}
-        onChange={(e) => onUpdateHandler(e)}></input>
+        defaultValue={value}
+        onChange={(e) => onChange(e, numbers)}></input>
+      
       <input
+        id="checkbox"
         className={classes.Checkbox}
         type="checkbox"
         name={name}
-        disabled={!isChecked}
-        onChange={() => onCheckedHandler(name, number)}></input>
+        disabled={value && !isChecked ? false : true}
+        onChange={() => onCheckedHandler(name, value, numbers)}></input>
     </div>
   )
 }
