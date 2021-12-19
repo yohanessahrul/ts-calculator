@@ -51,13 +51,14 @@ describe('Layout component test', () => {
     fireEvent.change(number2, { target: { value: 25 } });
     fireEvent.change(number3, { target: { value: 2 } });
 
-    fireEvent.change(checked1, { target: { checked: true } }) ;
-    fireEvent.change(checked2, { target: { checked: true } }) ;
-    fireEvent.change(checked3, { target: { checked: true } }) ;
+    fireEvent.click(checked1);
+    fireEvent.click(checked2);
+    fireEvent.click(checked3);
     fireEvent.click(divisionButton);
 
     // screen.debug()
     const result = container.querySelector("[data-testid='result'")
+    expect(result?.innerHTML).toBe('2')
     expect(result).toBeInTheDocument()
   })
 })
